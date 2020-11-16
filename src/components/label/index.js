@@ -69,6 +69,12 @@ export default class Label extends PureComponent {
       return null;
     }
 
+    // 컬러가 지정되어 있는 경우
+    if(style && style.color) {
+      baseColor = style.color;
+      tintColor = style.color;
+    }
+
     let color = disabled?
       baseColor:
       restricted?
