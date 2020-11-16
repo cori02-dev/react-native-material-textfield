@@ -69,20 +69,17 @@ export default class Label extends PureComponent {
       return null;
     }
 
-    // 컬러가 지정되어 있는 경우
-    if(style && style.color) {
-      baseColor = style.color;
-      tintColor = style.color;
-    }
-
-    let color = disabled?
-      baseColor:
-      restricted?
-        errorColor:
-        focusAnimation.interpolate({
-          inputRange: [-1, 0, 1],
-          outputRange: [errorColor, baseColor, tintColor],
-        });
+    // 컬러가 지정되어 있는 경우 우선 처리하도록 수정
+    let color = style && style.color ? 
+      style.color:
+      disabled?
+        baseColor:
+        restricted?
+          errorColor:
+          focusAnimation.interpolate({
+            inputRange: [-1, 0, 1],
+            outputRange: [errorColor, baseColor, tintColor],
+          });
 
     let textStyle = {
       lineHeight: fontSize * 1.5,
