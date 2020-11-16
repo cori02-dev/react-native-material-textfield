@@ -7,7 +7,7 @@ import {
   Animated,
   StyleSheet,
   Platform,
-  ViewPropTypes,
+  // ViewPropTypes,
 } from 'react-native';
 
 import Line from '../line';
@@ -84,9 +84,9 @@ export default class TextField extends PureComponent {
 
     labelOffset: Label.propTypes.offset,
 
-    labelTextStyle: Text.propTypes.style,
-    titleTextStyle: Text.propTypes.style,
-    affixTextStyle: Text.propTypes.style,
+    labelTextStyle: PropTypes.object,
+    titleTextStyle: PropTypes.object,
+    affixTextStyle: PropTypes.object,
 
     tintColor: PropTypes.string,
     textColor: PropTypes.string,
@@ -117,8 +117,8 @@ export default class TextField extends PureComponent {
     prefix: PropTypes.string,
     suffix: PropTypes.string,
 
-    containerStyle: (ViewPropTypes || View.propTypes).style,
-    inputContainerStyle: (ViewPropTypes || View.propTypes).style,
+    containerStyle: PropTypes.object,
+    inputContainerStyle: PropTypes.object
   };
 
   static inputContainerStyle = styles.inputContainer;
@@ -223,6 +223,7 @@ export default class TextField extends PureComponent {
 
     let options = {
       toValue: this.focusState(),
+      useNativeDriver: false,
       duration,
     };
 
