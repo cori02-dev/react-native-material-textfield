@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { Animated } from 'react-native';
+import { Animated, Platform } from 'react-native';
 
 import styles from './styles';
 
@@ -51,7 +51,9 @@ export default class Helper extends PureComponent {
 
   componentDidUpdate(prevProps) {
     if (this.props.error !== prevProps.error) {
-      this.setState({errored: !!this.props.error});
+      if (Platform.OS === 'android') {
+        this.setState({errored: !!this.props.error});
+      }
     }
   }
 
