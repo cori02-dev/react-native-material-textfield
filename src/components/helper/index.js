@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { Animated } from 'react-native';
+import { Animated, View } from 'react-native';
 
 import styles from './styles';
 
@@ -69,6 +69,7 @@ export default class Helper extends PureComponent {
       // baseColor,
       errorColor,
       textColor,
+      helperConfirmRightComponent,
     } = this.props;
     const error = this.props.error;
     const title = this.props.title;
@@ -90,9 +91,16 @@ export default class Helper extends PureComponent {
     };
 
     return (
-      <Animated.Text style={[styles.text, style, textStyle]}>
-        {text}
-      </Animated.Text>
+      <View style={styles.container}>
+        <Animated.Text style={[styles.text, style, textStyle]}>
+          {text}
+        </Animated.Text>
+        {!errored && helperConfirmRightComponent && 
+          <View style={styles.rightComponent}>
+            {helperConfirmRightComponent}
+          </View>
+        }
+      </View>
     );
   }
 }

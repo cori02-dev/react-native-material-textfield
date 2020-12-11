@@ -566,6 +566,7 @@ export default class TextField extends PureComponent {
       textColor,
       titleTextStyle: style,
       characterRestriction: limit,
+      helperConfirmRightComponent,
     } = this.props;
 
     let { length: count } = this.value();
@@ -583,11 +584,11 @@ export default class TextField extends PureComponent {
       errorColor,
     };
 
-    let counterProps = {
-      ...styleProps,
-      limit,
-      count,
-    };
+    // let counterProps = {
+    //   ...styleProps,
+    //   limit,
+    //   count,
+    // };
 
     let helperProps = {
       ...styleProps,
@@ -596,12 +597,13 @@ export default class TextField extends PureComponent {
       error,
       disabled,
       focusAnimation,
+      helperConfirmRightComponent,
     };
 
     return (
       <View style={[styles.helperContainer, containerStyle]}>
         <Helper {...helperProps} />
-        <Counter {...counterProps} />
+        {/* <Counter {...counterProps} /> */}
       </View>
     );
   }

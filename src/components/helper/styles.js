@@ -9,4 +9,12 @@ export default StyleSheet.create({
     paddingVertical: 2,
     textAlign: 'left',
   },
+  rightComponent: {
+    paddingVertical: 2,
+  },
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+  }
 });
