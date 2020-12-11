@@ -95,7 +95,7 @@ export default class Helper extends PureComponent {
         <Animated.Text style={[styles.text, style, textStyle]}>
           {text}
         </Animated.Text>
-        {!errored && helperConfirmRightComponent && 
+        {!errored && !!title && helperConfirmRightComponent && 
           <View style={styles.rightComponent}>
             {helperConfirmRightComponent}
           </View>
