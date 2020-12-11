@@ -563,6 +563,7 @@ export default class TextField extends PureComponent {
       disabled,
       baseColor,
       errorColor,
+      textColor,
       titleTextStyle: style,
       characterRestriction: limit,
     } = this.props;
@@ -590,6 +591,7 @@ export default class TextField extends PureComponent {
 
     let helperProps = {
       ...styleProps,
+      textColor,
       title,
       error,
       disabled,
