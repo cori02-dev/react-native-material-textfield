@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
-import { Animated, Platform } from 'react-native';
+import { Animated } from 'react-native';
 
 import styles from './styles';
 
@@ -49,14 +49,6 @@ export default class Helper extends PureComponent {
     focusAnimation.removeListener(this.listener);
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.error !== prevProps.error) {
-      if (Platform.OS === 'android') {
-        this.setState({errored: !!this.props.error});
-      }
-    }
-  }
-
   onAnimation({ value }) {
     if (this.animationValue > -0.5 && value <= -0.5) {
       this.setState({ errored: true });
@@ -73,14 +65,14 @@ export default class Helper extends PureComponent {
     let { errored, opacity } = this.state;
     let {
       style,
-      title,
-      error,
       disabled,
       baseColor,
       errorColor,
     } = this.props;
+    const error = this.props.error;
+    const title = this.props.title;
 
-    let text = errored?
+    const text = errored?
       error:
       title;
 
