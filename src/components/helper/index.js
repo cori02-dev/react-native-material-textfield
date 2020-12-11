@@ -66,8 +66,9 @@ export default class Helper extends PureComponent {
     let {
       style,
       disabled,
-      baseColor,
+      // baseColor,
       errorColor,
+      textColor,
     } = this.props;
     const error = this.props.error;
     const title = this.props.title;
@@ -85,7 +86,7 @@ export default class Helper extends PureComponent {
 
       color: !disabled && errored?
         errorColor:
-        baseColor,
+        textColor,
     };
 
     return (
