@@ -78,7 +78,7 @@ export default class Helper extends PureComponent {
       error:
       title;
 
-    if (null == text) {
+    if (!text) {
       return null;
     }
 
