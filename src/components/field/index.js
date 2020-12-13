@@ -129,7 +129,7 @@ export default class TextField extends PureComponent {
     input: 8,
     left: 0,
     right: 0,
-    bottom: 8,
+    bottom: 0, // 기존에는 8이었음 하단 여백 생겨서 0으로 변경
   };
 
   static labelOffset = {
