@@ -6,11 +6,13 @@ export default StyleSheet.create({
     fontSize: 12,
     lineHeight: 16,
     backgroundColor: 'transparent',
-    paddingVertical: 2,
+    paddingTop: 8,
+    paddingBottom: 2,
     textAlign: 'left',
   },
   rightComponent: {
-    paddingVertical: 2,
+    paddingTop: 8,
+    paddingBottom: 2,
   },
   container: {
     flexDirection: 'row',
